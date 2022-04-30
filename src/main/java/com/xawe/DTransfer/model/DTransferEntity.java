@@ -1,4 +1,4 @@
-package com.xawe.DTransfer.model;
+package com.xawe.dtransfer.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
