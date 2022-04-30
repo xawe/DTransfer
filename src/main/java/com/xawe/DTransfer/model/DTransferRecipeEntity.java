@@ -10,8 +10,8 @@ import javax.persistence.Column;
  * 
  */
 @Entity
-@Table(name = "Dtransfer")
-public class DTransferEntity extends AuditModelEntity{
+@Table(name = "dtransfer_recipe")
+public class DTransferRecipeEntity extends AuditModelEntity{
    
 	/**
 	 * Chave usada para identificar o registro de execução
