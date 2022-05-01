@@ -10,8 +10,8 @@ import javax.persistence.Column;
  * 
  */
 @Entity
-@Table(name = "dtransfer_recipe")
-public class DTransferRecipeEntity extends AuditModelEntity{
+@Table(name = "dtransfer")
+public class DTransferEntity extends AuditModelEntity{
    
 	/**
 	 * Chave usada para identificar o registro de execução
@@ -62,7 +62,7 @@ public class DTransferRecipeEntity extends AuditModelEntity{
 		return identifier;
 	}
 
-	public void setDataName(String identifier) {
+	public void setIdentifier(String identifier) {
 		this.identifier = identifier;
 	}
 
