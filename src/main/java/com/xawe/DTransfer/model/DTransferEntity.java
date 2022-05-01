@@ -10,7 +10,7 @@ import javax.persistence.Column;
  * 
  */
 @Entity
-@Table(name = "Dtransfer")
+@Table(name = "dtransfer")
 public class DTransferEntity extends AuditModelEntity{
    
 	/**
@@ -62,7 +62,7 @@ public class DTransferEntity extends AuditModelEntity{
 		return identifier;
 	}
 
-	public void setDataName(String identifier) {
+	public void setIdentifier(String identifier) {
 		this.identifier = identifier;
 	}
 
