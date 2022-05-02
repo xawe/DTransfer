@@ -20,14 +20,18 @@ public class RegisterServiceImpl implements RegisterService {
     @Autowired
     private DTransferRepository repo;
 
+    @Autowired
+    private ExampleCreate202205011834 createExample;
+
     @Override
     public List<DataLoader> registerDataLoaders() {
         List<DataLoader> dataLoaders = new ArrayList<>();         
+        dataLoaders.add(createExample);
         
         //TODO - O FindAll abaixo tende a ficar lento com o tempo Necessário alterar a estrategia para escalar
         List<DTransferEntity> registeredDTransfer =  repo.findAll();
-        List<DataLoader> newLoaders = this.saveNewLoaders(dataLoaders,registeredDTransfer);        
-        return newLoaders;
+        this.saveNewLoaders(dataLoaders,registeredDTransfer);        
+        return dataLoaders;
     }
 
     /**
@@ -47,12 +51,14 @@ public class RegisterServiceImpl implements RegisterService {
         return newLoaders;
     }
     
-    private List<DataLoader> saveNewLoaders(List<DataLoader> loaders, List<DTransferEntity> dtransferEntities){
+    private void saveNewLoaders(List<DataLoader> loaders, List<DTransferEntity> dtransferEntities){
         List<DataLoader> newDataLoaders = this.filterNewOnly(loaders,dtransferEntities);
         List<DTransferEntity> dtransfer = new ArrayList<DTransferEntity>();
         for (DataLoader dl : newDataLoaders) {
             DTransferEntity dte = new DTransferEntity();
-            dte.setCreatedAt(Date.from(Instant.now()));
+            Date createdOn = Date.from(Instant.now());
+            dte.setCreatedAt(createdOn);
+            dte.setUpdatedAt(createdOn);
             dte.setDescription(dl.getDescription());
             dte.setIdentifier(dl.getIdentifier());
             dte.setNumericIdentifier(this.getNumbers(dl.getIdentifier()));
@@ -60,9 +66,15 @@ public class RegisterServiceImpl implements RegisterService {
             dtransfer.add(dte);
         }
 
-        Iterable<DTransferEntity> items = dtransfer;        
-        repo.saveAllAndFlush(items);
-        return newDataLoaders;
+        if(dtransfer.size()>0){
+            Iterable<DTransferEntity> items = dtransfer; 
+            try {
+                repo.saveAll(items);            
+            } catch (Exception e) {
+                System.out.println("Erro ao gravar dados ::: " + e);
+            }       
+        }
+        
     }
 
 

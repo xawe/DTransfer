@@ -50,11 +50,18 @@ public class DTransferEntity extends AuditModelEntity{
 	@Column(columnDefinition = "bigint")
 	private Long numericIdentifier;
 
-	public Long getNumericIdentifier() {
-		return numericIdentifier;
+	@Column(columnDefinition = "integer", updatable = false, insertable = false, nullable = false)	
+	private Integer sequence;
+
+	public Integer getSequence(){
+		return this.sequence;
+	}
+	
+	public Long getNumericIdentifier(){
+		return this.numericIdentifier;
 	}
 
-	public void setNumericIdentifier(Long numericIdentifier) {
+	public void setNumericIdentifier(Long numericIdentifier){
 		this.numericIdentifier = numericIdentifier;
 	}
 
