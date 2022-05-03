@@ -2,22 +2,9 @@ package com.xawe.dtransfer.message;
 
 public class CowSay {
 
-    public static String getMessage(AvatarEnum avatar){
-        
-        /*
-		 * The message we want to print out
-		 */
-		String message = " Hello ModaFoca \n this execution was a sucess";
-		
+    public static String getMessage(AvatarEnum avatar, String message){            		
         StringBuilder sb = new StringBuilder();
 		
-		
-		/*
-		 * Here begins the formatted output of the tux.
-		 * 
-		 * Test on your own how it works. Trial & error is
-		 * the best way.
-		 */
         sb.append("  ");
         sb.append("\n");
 		
