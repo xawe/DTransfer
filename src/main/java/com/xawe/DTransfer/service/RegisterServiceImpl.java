@@ -7,6 +7,11 @@ import java.util.List;
 
 import com.xawe.dtransfer.DataLoader;
 import com.xawe.dtransfer.enums.DTransferStatusEnum;
+import com.xawe.dtransfer.load.CreateDummy202205022145;
+import com.xawe.dtransfer.load.CreateDummy202205022148;
+import com.xawe.dtransfer.load.CreateDummy202205022153;
+import com.xawe.dtransfer.load.CreateQuestion202205012252;
+import com.xawe.dtransfer.load.ExampleCreate202205011834;
 import com.xawe.dtransfer.model.DTransferEntity;
 import com.xawe.dtransfer.repository.DTransferRepository;
 
@@ -23,10 +28,25 @@ public class RegisterServiceImpl implements RegisterService {
     @Autowired
     private ExampleCreate202205011834 createExample;
 
+    @Autowired
+    private CreateDummy202205022145 create2145;
+
+    @Autowired
+    private CreateDummy202205022148 create2148;
+    @Autowired
+    private CreateDummy202205022153 create2153;
+
+    @Autowired
+    private CreateQuestion202205012252 createQuestion;
+
     @Override
     public List<DataLoader> registerDataLoaders() {
         List<DataLoader> dataLoaders = new ArrayList<>();         
         dataLoaders.add(createExample);
+        dataLoaders.add(create2145);
+        dataLoaders.add(create2148);
+        dataLoaders.add(create2153);
+        dataLoaders.add(createQuestion);
         
         //TODO - O FindAll abaixo tende a ficar lento com o tempo Necessário alterar a estrategia para escalar
         List<DTransferEntity> registeredDTransfer =  repo.findAll();

@@ -1,4 +1,4 @@
-package com.xawe.dtransfer.service;
+package com.xawe.dtransfer.load;
 
 import com.xawe.dtransfer.DataLoader;
 
