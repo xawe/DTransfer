@@ -11,12 +11,15 @@ import org.springframework.stereotype.Service;
 public class DTransferFlowServiceImpl implements DTransferFlowService {
 
     @Autowired
-    RegisterService registerService;
+    private RegisterService registerService;
+
+    @Autowired
+    private ExecutorService executorService;
 
     @Override
     public void execute() {
        List<DataLoader> dataLoaders = registerService.registerDataLoaders();
-       
+       executorService.execute(dataLoaders);
         
     }
 

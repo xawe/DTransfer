@@ -1,5 +1,7 @@
 package com.xawe.dtransfer.controller;
 
+import com.xawe.dtransfer.message.AvatarEnum;
+import com.xawe.dtransfer.message.CowSay;
 import com.xawe.dtransfer.service.DTransferFlowService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,6 @@ public class DtransferController {
     @GetMapping(value = "/execute")
     public ResponseEntity<String> executeDTransfer(){
         dtransferFlowService.execute();
-        return ResponseEntity.ok().body("Sucess");
-    }
+        return ResponseEntity.ok().body(CowSay.getMessage(AvatarEnum.MIMOSA));
+    }    
 }
