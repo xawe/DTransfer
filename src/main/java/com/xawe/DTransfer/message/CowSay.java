@@ -30,7 +30,11 @@ public class CowSay {
             return getTux();
         }else if(avatar.equals(AvatarEnum.MIMOSA)){
             return getMimosa();
-        }   
+        }else if(avatar.equals(AvatarEnum.BEAVIS)){
+            return getBeavis();
+        }else if(avatar.equals(AvatarEnum.BEAR)){
+            return getBear();
+        }
         return getMimosa();     
     }
 
@@ -63,4 +67,53 @@ public class CowSay {
         sb.append("        ||     ||\n");        
         return sb.toString();
     }
+
+    public static String getBear(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("    \\\n");
+		sb.append("     \\\n");
+		sb.append("      \\\n");
+        sb.append("         __         __\n");
+        sb.append("        /  \\.-\"\"\"-./  \\\n");
+        sb.append("        \\    -   -    /\n");
+        sb.append("         |   o   o   |\n");
+        sb.append("         \\  .-'''-.  /\n");
+        sb.append("          '-\\__Y__/-'\n");
+        sb.append("             `---`\n");
+
+        return sb.toString();
+    }
+
+    public static String getBeavis(){
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("    \\\n");
+		sb.append("     \\\n");
+		sb.append("      \\\n");
+        sb.append("            _------__--___.__.\n");
+        sb.append("          /            `  `    \\\n");
+        sb.append("         |                      \\\n");
+        sb.append("         |                       |\n");
+        sb.append("          \\                      |\n");
+        sb.append("            ~/ --`-`-`-\\         |\n");
+        sb.append("            |            |       |\n");
+        sb.append("            |            |       |\n");
+        sb.append("             |   _--    |       |\n");
+        sb.append("              | =-.    |.-.    |\n");
+        sb.append("             o|/o/       _.   |\n");
+        sb.append("             /  ~          \\ |\n");
+        sb.append("           (____@)  ___~    |\n");
+        sb.append("              |_===~~~.`    |\n");
+        sb.append("           _______.--~     |\n");
+        sb.append("          \\________       |\n");
+        sb.append("                   \\      |\n");
+        sb.append("                 __/-___-- -__\n");
+        sb.append("                /            __\\\n");
+        sb.append("               /-| Metallica|| |\n");
+        sb.append("              / /|          || |\n");
+        return sb.toString();
+    }
+
+    
+
 }
