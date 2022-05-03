@@ -31,7 +31,7 @@ public class DtransferController {
     @GetMapping(value = "/execute")
     public ResponseEntity<String> executeDTransfer(){
         dtransferFlowService.execute();
-        return ResponseEntity.ok().body(CowSay.getMessage(AvatarEnum.TUX, 
+        return ResponseEntity.ok().body(CowSay.getMessage(AvatarEnum.BEAR, 
         "Execução finalizada com sucesso as "+ Date.from(Instant.now()).getTime()));
     }    
 }
