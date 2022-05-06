@@ -6,4 +6,5 @@ import com.xawe.dtransfer.DataLoader;
 
 public interface RegisterService {
     List<DataLoader> registerDataLoaders();
+    List<DataLoader> initializeExistentLoaders();
 }

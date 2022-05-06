@@ -41,12 +41,8 @@ public class RegisterServiceImpl implements RegisterService {
 
     @Override
     public List<DataLoader> registerDataLoaders() {
-        List<DataLoader> dataLoaders = new ArrayList<>();         
-        dataLoaders.add(createExample);
-        dataLoaders.add(create2145);
-        dataLoaders.add(create2148);
-        dataLoaders.add(create2153);
-        dataLoaders.add(createQuestion);
+
+        List<DataLoader> dataLoaders = this.initializeExistentLoaders();                 
         
         //TODO - O FindAll abaixo tende a ficar lento com o tempo Necessário alterar a estrategia para escalar
         List<DTransferEntity> registeredDTransfer =  repo.findAll();
@@ -104,4 +100,16 @@ public class RegisterServiceImpl implements RegisterService {
 		return Long.parseLong(s);
         
 	}
+
+    @Override
+    public List<DataLoader> initializeExistentLoaders() {
+        List<DataLoader> dataLoaders = new ArrayList<>();         
+        dataLoaders.add(createExample);
+        dataLoaders.add(create2145);
+        dataLoaders.add(create2148);
+        dataLoaders.add(create2153);
+        dataLoaders.add(createQuestion);
+
+        return dataLoaders;
+    }
 }

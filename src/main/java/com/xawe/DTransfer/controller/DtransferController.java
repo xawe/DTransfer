@@ -31,7 +31,13 @@ public class DtransferController {
     @GetMapping(value = "/execute")
     public ResponseEntity<String> executeDTransfer(){
         dtransferFlowService.execute();
-        return ResponseEntity.ok().body(CowSay.getMessage(AvatarEnum.BEAR, 
+        return ResponseEntity.ok().body(CowSay.getMessage(AvatarEnum.MIMOSA, 
         "Execução finalizada com sucesso as "+ Date.from(Instant.now()).getTime()));
     }    
+
+    @GetMapping(value = "/rollback")
+    public ResponseEntity<String> executeRollback(){
+        dtransferFlowService.rollback();
+        return ResponseEntity.ok().body(CowSay.getMessage(AvatarEnum.BEAVIS, "Nothing else Matteeeeeers"));
+    }
 }

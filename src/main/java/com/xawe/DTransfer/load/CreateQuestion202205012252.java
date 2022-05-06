@@ -4,6 +4,8 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import com.xawe.dtransfer.DataLoader;
 import com.xawe.dtransfer.model.Question;
@@ -42,5 +44,15 @@ public class CreateQuestion202205012252 extends DataLoader {
         lista.add(q2);
         Iterable<Question> questoes = lista;
         repo.saveAllAndFlush(questoes);
+    }
+
+    @Override
+    public void rollback(){
+        List<Question> retorno = repo.findAll()
+        .stream()
+        .filter(q -> q.getTitle().equals("Titulo Questão 1") || q.getTitle().equals("Titulo Questão 2"))
+        .collect(Collectors.toList());
+        Iterable<Question> items = retorno;
+        repo.deleteAll(items);
     }
 }

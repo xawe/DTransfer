@@ -3,7 +3,8 @@ package com.xawe.dtransfer.enums;
 public enum DTransferStatusEnum {
     PENDENTE(1),
 	EXECUTADO(2),
-	ERRO(3);
+	ERRO(3),
+    ROLLEDBACK(4);
 	
 	private final Integer status;
 	
